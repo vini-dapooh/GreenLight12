@@ -16,6 +16,14 @@ from typing import Optional
 
 from rapidfuzz import fuzz
 
+# local secrets: KEY=value lines in .env (gitignored); real environment variables win
+_env = os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env")
+if os.path.exists(_env):
+    for _l in open(_env, encoding="utf-8-sig"):
+        _k, _, _v = _l.strip().partition("=")
+        if _k and not _k.startswith("#") and _v:
+            os.environ.setdefault(_k.strip(), _v.strip().strip("\"'"))
+
 DEFAULT_MODEL = os.environ.get("GREENLIGHT_MODEL", "gpt-4o")
 
 

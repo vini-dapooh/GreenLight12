@@ -10,7 +10,7 @@ pip install -r requirements.txt        # also needs the Tesseract OCR binary ins
 uvicorn app.server:app --port 8077     # open http://localhost:8077
 pytest -q tests                        # regression tests on the sample
 ```
-Optional AI layer: `export OPENAI_API_KEY=...` (model via `GREENLIGHT_MODEL`). Everything works without it.
+Optional AI layer: put `OPENAI_API_KEY=...` in a `.env` file next to this README (gitignored), or export it (model via `GREENLIGHT_MODEL`). Everything works without it.
 
 ## Why "GreenLight"
 The question a packaging team asks before print is "can we give this the green light?". Every finding lands in one of three colours: **red** (proven problem), **amber** (a human must decide), **green** (checked and correct). Nothing is flagged red unless it is proven by arithmetic, set comparison, regex or a decoded barcode.
