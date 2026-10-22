@@ -4,6 +4,9 @@
 
 Upload packaging artwork (PDF or image), the approved content sheet (.xlsx) and optionally a company rulebook (.md). Get a ranked list of **definite problems**, **items needing human review**, and **things that look correct**, each with evidence pinned on the artwork.
 
+## How it works
+![GreenLight architecture](architecture.png)
+
 ## Why "GreenLight"
 The question a packaging team asks before print is "can we give this the green light?". Every finding lands in one of three colours: **red** (proven problem), **amber** (a human must decide), **green** (checked and correct). Nothing is flagged red unless it is proven by arithmetic, set comparison, regex or a decoded barcode. The AI can only raise an amber "needs review".
 
