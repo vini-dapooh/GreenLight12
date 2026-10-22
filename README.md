@@ -71,3 +71,9 @@ One test (`test_hidden_panel_is_review_not_fail`) needs Tesseract installed and 
 `app/extract.py` layers, OCR, panels, barcode, hidden text · `app/parse.py` structure · `app/checks.py` check primitives · `app/rulebook.py` + `app/rules/*.yaml` rules · `app/engine.py` orchestration · `app/llm.py` optional OpenAI layer · `web/index.html` UI · `samples/` demo files · `docs/` architecture, write-up, demo script.
 
 See `docs/ARCHITECTURE.md` and `docs/SUBMISSION.md`.
+
+## About
+- **Project:** GreenLight
+- **Problem statement:** Problem 2, is this packaging artwork ready to launch? Check artwork against the approved content sheet and the applicable rules before it goes to print.
+- **Built by:** Vinit Khutey
+- **Event:** Developed for the Esko AIForge hackathon.
