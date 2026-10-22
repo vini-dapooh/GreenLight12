@@ -1,0 +1,125 @@
+# Base rulebook = US food-label regulations (subset) + product-record (content sheet) consistency + print-file hygiene.
+# Each rule is ONE atomic, machine-checkable obligation. `check` names a deterministic primitive in app/checks.py.
+# Rules are data, so a regulator or brand can extend them without code, and the LLM can *generate* rules in this schema
+# from free text (see app/llm.py: route_rulebook).
+- id: US-NF-001
+  title: Nutrition Facts panel present
+  authority: 21 CFR 101.9
+  severity: major
+  check: nf_present
+- id: US-NF-002
+  title: "%DV must match the declared amount"
+  authority: 21 CFR 101.9(c)(9) (Daily Reference Values)
+  severity: critical
+  check: nf_dv_math
+- id: US-NF-003
+  title: Calories consistent with fat, carbohydrate and protein
+  authority: 21 CFR 101.9(c)(1)
+  severity: critical
+  check: nf_calories
+- id: US-NF-004
+  title: Nutrient values physically plausible
+  authority: 21 CFR 101.9(c)
+  severity: major
+  check: nf_physical
+- id: US-NF-005
+  title: Serving size in household + metric units; servings x size ~ net contents
+  authority: 21 CFR 101.9(b)
+  severity: major
+  check: nf_serving
+- id: US-NF-006
+  title: Added-sugars line consistent with ingredients
+  authority: 21 CFR 101.9(c)(6)(iii)
+  severity: major
+  check: nf_added_sugars_vs_ingredients
+- id: US-NF-007
+  title: One nutrition declaration format per pack (US Nutrition Facts only)
+  authority: 21 CFR 101.9 (format); brand standard
+  severity: major
+  check: nutrition_format_consistency
+- id: US-CLM-001
+  title: "'No added sugars' claim requires no added-sugar ingredients"
+  authority: 21 CFR 101.60(c)(2)
+  severity: critical
+  check: claim_no_added_sugar
+- id: US-CLM-002
+  title: Vegan claims must not conflict with animal-derived ingredients
+  authority: "FD&C Act 403(a) (false or misleading labeling); vegan.org standard"
+  severity: major
+  check: claim_vegan
+- id: US-ALG-001
+  title: Major allergens declared via "Contains:" or in the ingredient list
+  authority: FALCPA, 21 U.S.C. 343(w); FASTER Act
+  severity: critical
+  check: allergen_contains
+- id: US-ALG-002
+  title: Allergen wording appropriate for the US market
+  authority: FDA food allergen labeling guidance
+  severity: minor
+  check: allergen_terms
+- id: US-NQ-001
+  title: Net quantity on the principal display panel (bottom 30%)
+  authority: 21 CFR 101.105(f)
+  severity: major
+  check: net_qty_pdp
+- id: US-NQ-002
+  title: Net quantity in both US customary and metric units
+  authority: FPLA, 15 U.S.C. 1453(a)(2); 21 CFR 101.105
+  severity: major
+  check: net_qty_units
+- id: US-ID-001
+  title: Statement of identity on the PDP
+  authority: 21 CFR 101.3
+  severity: major
+  check: identity_matches
+- id: US-MFR-001
+  title: Name and place of business (city, state, ZIP)
+  authority: 21 CFR 101.5
+  severity: major
+  check: manufacturer_address
+- id: US-ORG-001
+  title: Organic claims need a certifier statement and organic ingredient identification
+  authority: 7 CFR 205.303, 205.305
+  severity: major
+  check: organic_rules
+- id: US-TYP-001
+  title: Minimum type size for mandatory statements
+  authority: 21 CFR 101.2(c)
+  severity: minor
+  check: type_size
+- id: GS1-001
+  title: Barcode decodes, passes its check digit and matches the product record
+  authority: GS1 General Specifications
+  severity: major
+  check: upc_valid
+  rule_source: industry
+- id: REC-001
+  title: Ingredient list matches the approved content sheet
+  authority: Approved product record (content sheet)
+  severity: critical
+  check: ingredients_match
+  rule_source: content-sheet
+- id: REC-002
+  title: Marketing, storage, allergen and dietary text match the approved content sheet
+  authority: Approved product record (content sheet)
+  severity: major
+  check: sheet_text_match
+  rule_source: content-sheet
+- id: REC-003
+  title: Net weight matches the approved content sheet
+  authority: Approved product record (content sheet)
+  severity: major
+  check: net_qty_matches_sheet
+  rule_source: content-sheet
+- id: REC-004
+  title: Claims and certification marks listed in the content sheet appear on the pack
+  authority: Approved product record (content sheet)
+  severity: major
+  check: claims_present
+  rule_source: content-sheet
+- id: PRE-001
+  title: No hidden or non-printing text in the print file
+  authority: Prepress hygiene
+  severity: major
+  check: hidden_text
+  rule_source: industry

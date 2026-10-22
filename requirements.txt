@@ -1,0 +1,12 @@
+pymupdf
+pillow
+openpyxl
+pyyaml
+rapidfuzz
+pytesseract
+zxing-cpp
+fastapi
+uvicorn
+python-multipart
+openai           # optional: only used when OPENAI_API_KEY is set
+pytest           # dev
