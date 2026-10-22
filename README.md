@@ -54,6 +54,11 @@ pytest -q tests
 ```
 One test (`test_hidden_panel_is_review_not_fail`) needs Tesseract installed and will fail without it.
 
+## Known limits
+- Reviewer decisions (Confirm / False alarm) live in server memory for the session and are included in the exports. They are lost on server restart or page reload; avoid reloading mid-review.
+- Tuned on one US carton; the nutrition parser targets US-style panels.
+- Follow-up chat is limited to one finding's data by its prompt, and can only return text, never change a verdict.
+
 ## Troubleshooting
 - **Port already in use:** run with another port, e.g. `--port 8078`.
 - **Header says "Offline" although you set a key:** the `.env` file must be next to this README, and the server must be restarted after editing it.

@@ -22,6 +22,8 @@
 - Tuned on one carton; the structure is generic but the nutrition parser targets US-style panels.
 - Image-only artwork is read by OCR and is deliberately conservative.
 - Graphic marks need the vision model or a human.
+- Reviewer decisions (Confirm problem / Mark false alarm) are held in server memory for the session and included in the HTML, CSV and JSON exports. They are not saved across a server restart or page reload; a production version would persist them in a database and feed false alarms back to tune the rules.
+- Follow-up chat is scoped to one finding's own data and instructed not to invent rules or numbers. This is a prompt-level guardrail, not a hard filter, and it can only return text: it cannot change a finding's verdict.
 
 ## Tech
 Python, FastAPI, PyMuPDF, Tesseract, zxing-cpp, openpyxl, RapidFuzz, YAML rules, vanilla JS/SVG viewer, optional OpenAI API.
