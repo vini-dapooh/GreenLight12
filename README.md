@@ -22,8 +22,8 @@ Python packages are listed in `requirements.txt` (PyMuPDF, Pillow, openpyxl, PyY
 
 ## Install
 ```bash
-git clone https://github.com/vini-dapooh/GreenLight.git
-cd GreenLight
+git clone https://github.com/vini-dapooh/GreenLight12.git
+cd GreenLight12
 
 python -m venv .venv
 # Windows (PowerShell):  .venv\Scripts\Activate.ps1
