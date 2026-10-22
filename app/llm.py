@@ -95,7 +95,7 @@ class LLM:
             if chk != "judge" and chk not in catalogue:
                 chk = "judge"
             rules.append(dict(id=str(r.get("id", "")), title=r.get("title", ""), check=chk, clause=r.get("clause", r.get("title", "")),
-                              severity=r.get("severity", "major")))
+                              severity=r.get("severity") if r.get("severity") in ("critical", "major", "minor") else "major"))
         return rules
 
     # ------------------------------------------------------------------ judge a free-text clause

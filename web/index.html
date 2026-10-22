@@ -2072,7 +2072,7 @@ function card(f) {
         <div class="t">${esc(f.title)}</div>
         <div class="s">${esc(f.summary)}</div>
       </span>
-      ${f.verdict !== "pass" ? `<span class="sev ${f.severity}">${f.severity}</span>` : `<span></span>`}
+      ${f.verdict !== "pass" ? `<span class="sev ${esc(f.severity)}">${esc(f.severity)}</span>` : `<span></span>`}
     </button>
     ${sel ? body(f) : ""}
   </article>
