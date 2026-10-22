@@ -1,4 +1,4 @@
-# Architecture
+# GreenLight architecture
 
 ```mermaid
 flowchart LR

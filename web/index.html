@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Artwork Preflight · AI Packaging Compliance</title>
+<title>GreenLight · AI Packaging Compliance</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -1407,8 +1407,8 @@ details.trace { margin-top: 18px; }
       </svg>
     </div>
     <div>
-      Artwork Preflight
-      <span class="brand-badge">AIForge 2.0</span>
+      GreenLight
+      <span class="brand-badge">AI Preflight</span>
       <span class="brand-sub">· packaging compliance, with receipts</span>
     </div>
   </div>
@@ -1615,7 +1615,7 @@ const files = { art: null, sheet: null, rb: null };
 /* ---------- Theme Management ---------- */
 const themeBtn = $("#theme-btn");
 function initTheme() {
-  const saved = localStorage.getItem("aiforge-theme") || "dark";
+  const saved = localStorage.getItem("greenlight-theme") || "dark";
   document.documentElement.setAttribute("data-theme", saved);
 }
 initTheme();
@@ -1623,7 +1623,7 @@ themeBtn.onclick = () => {
   const current = document.documentElement.getAttribute("data-theme") || "dark";
   const next = current === "dark" ? "light" : "dark";
   document.documentElement.setAttribute("data-theme", next);
-  localStorage.setItem("aiforge-theme", next);
+  localStorage.setItem("greenlight-theme", next);
 };
 
 /* ---------- Engine Status & Intake Boot ---------- */

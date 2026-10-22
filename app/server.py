@@ -12,7 +12,7 @@ from .llm import LLM, offline_answer
 
 ROOT = os.path.dirname(os.path.dirname(__file__))
 SAMPLES = os.path.join(ROOT, "samples")
-app = FastAPI(title="AIForge Artwork Preflight")
+app = FastAPI(title="GreenLight")
 JOBS: dict = {}
 _sample_lock = threading.Lock()
 LLM_CLIENT = LLM()
@@ -180,12 +180,12 @@ def report_html(jid: str):
                     + f"<p class=m>Rule: {e(f['authority'])} · confidence {f['confidence']:.0%} · {e(f['method'])}"
                     + (f" · reviewer: <b>{e(r['state'])}</b> {e(r.get('note', ''))}" if r else "") + "</p></section>")
     s = rep["summary"]
-    page = f"""<!doctype html><meta charset=utf-8><title>Preflight report</title><style>
+    page = f"""<!doctype html><meta charset=utf-8><title>GreenLight report</title><style>
 body{{font:15px/1.5 system-ui,sans-serif;max-width:960px;margin:2rem auto;padding:0 1rem;color:#1d2433}}h1{{margin:.2rem 0}}img{{max-width:100%;border:1px solid #ddd;border-radius:8px}}
 .f{{border-left:6px solid #999;padding:.2rem 1rem;margin:1rem 0;background:#fafafa;border-radius:6px}}.f.fail{{border-color:#d92d20}}.f.review{{border-color:#dc6803}}.f.pass{{border-color:#12b76a}}
 h3 em{{font-size:.7em;font-style:normal;color:#666;margin-left:.5rem}}.n{{display:inline-block;background:#1d2433;color:#fff;border-radius:4px;padding:0 .4rem;margin-right:.3rem}}.m{{color:#555;font-size:.9em}}
 table.d{{border-collapse:collapse;font-size:.9em}}table.d td{{border:1px solid #e3e3e3;padding:2px 8px}}</style>
-<h1>Artwork preflight: {e(rep['headline'] if 'headline' in rep else s['headline'])}</h1>
+<h1>GreenLight: {e(rep['headline'] if 'headline' in rep else s['headline'])}</h1>
 <p>{e(rep['artwork'])} vs {e(rep['sheet'] or 'no content sheet')} · {s['fail']} definite problems · {s['review']} need a human · {s['passed']} look correct</p>
 <img src="data:image/jpeg;base64,{img}" alt="annotated artwork">{''.join(rows)}"""
     return HTMLResponse(page, headers={"Content-Disposition": f'attachment; filename="preflight-{jid}.html"'})

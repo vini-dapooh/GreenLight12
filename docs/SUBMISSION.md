@@ -1,4 +1,4 @@
-# Is this packaging artwork ready to launch? - Submission write-up
+# GreenLight: is this packaging artwork ready to launch? - Submission write-up
 
 **Problem 2, Esko AIForge.** Packaging artwork must match the approved product data and the rules (regulatory, retailer, company) before it is printed. Today a person reads the artwork against a spreadsheet and a rulebook. It is slow, and the errors that slip through are expensive: a wrong allergen, a wrong claim, a Nutrition Facts panel that does not add up.
 

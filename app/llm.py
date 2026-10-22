@@ -16,7 +16,7 @@ from typing import Optional
 
 from rapidfuzz import fuzz
 
-DEFAULT_MODEL = os.environ.get("AIFORGE_MODEL", "gpt-4o")
+DEFAULT_MODEL = os.environ.get("GREENLIGHT_MODEL", "gpt-4o")
 
 
 class LLM:
