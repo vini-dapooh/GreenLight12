@@ -52,7 +52,8 @@ def test_ocr_only_never_fails():
     r, _, _ = analyze(p, os.path.join(S, "content_sheet.xlsx"), [], artwork_name="carton.png")
     assert r["summary"]["fail"] == 0
 
-def test_llm_off_by_default():
+def test_llm_off_by_default(monkeypatch):
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     assert not LLM(api_key=None).available
 
 def test_llm_judge_is_capped_and_quotes_verified():
