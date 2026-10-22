@@ -1,5 +1,5 @@
 """Regression tests: the planted issues in the Esko sample must be found, and the right things must PASS."""
-import os, sys
+import os, shutil, sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 import pytest
 from app.engine import analyze
@@ -29,6 +29,7 @@ def test_headline(rep):
 def test_definite_problems(rep, needle):
     assert "fail" in verdict(rep, needle)
 
+@pytest.mark.skipif(not shutil.which("tesseract"), reason="hidden-text check needs the Tesseract binary")
 def test_hidden_panel_is_review_not_fail(rep):
     assert verdict(rep, "hidden") == {"review"}
 
