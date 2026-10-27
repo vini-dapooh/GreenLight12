@@ -84,7 +84,7 @@
   <g filter="url(#sh)"><rect x="985" y="155" width="270" height="545" rx="16" fill="#fff" stroke="#12b76a" stroke-width="2.5"/></g>
   <rect x="985" y="155" width="270" height="44" rx="16" fill="url(#hd)"/><rect x="985" y="180" width="270" height="19" fill="#0b6e4f"/>
   <text x="1005" y="184" font-size="17" font-weight="700" fill="#fff">Rule engine · plain code</text>
-  <text x="1005" y="228" font-size="13" font-weight="700" fill="#0b6e4f">~30 DETERMINISTIC CHECKS</text>
+  <text x="1005" y="228" font-size="13" font-weight="700" fill="#0b6e4f">23 DETERMINISTIC CHECKS</text>
   <g font-size="13.5" fill="#334155">
     <text x="1005" y="254">• %DV and calorie arithmetic</text>
     <text x="1005" y="278">• Allergens vs ingredients</text>

@@ -19,7 +19,7 @@ flowchart LR
   end
   SH[Content sheet reader<br/>cell refs + 'unverified' flags]
   X --> P[2 Parse<br/>nutrition rows, ingredients, allergens,<br/>claims, net qty, marks - with bounding boxes]
-  P --> RE[3 Rule engine<br/>about 30 deterministic check primitives]
+  P --> RE[3 Rule engine<br/>23 deterministic check primitives]
   SH --> RE
   RE --> V{{Verdict per finding}}
   V -->|proven| F[FAIL definite problem]
